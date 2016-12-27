@@ -1,0 +1,9 @@
+from alpine 
+RUN  apk add --update rsyslog \
+  && rm -rf /var/cache/apk/* \
+  && touch /var/log/haproxy.log
+copy rsyslog.conf /etc/rsyslog.conf
+copy init.sh /
+EXPOSE 514 514/udp
+#ENTRYPOINT [ "rsyslogd", "-n" ]
+ENTRYPOINT [ "/bin/sh", "/init.sh" ]

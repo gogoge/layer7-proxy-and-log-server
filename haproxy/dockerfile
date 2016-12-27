@@ -1,0 +1,6 @@
+from haproxy
+run touch /run/haproxy
+COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
+expose 80 
+expose 443
+expose 1936
