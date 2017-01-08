@@ -1,1 +1,1 @@
-docker build -f `pwd`/dockerfile -t gogoge/haproxy .
+docker build -f `pwd`/dockerfile -t gogoge/haproxy  .

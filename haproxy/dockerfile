@@ -1,6 +1,14 @@
 from haproxy
-run touch /run/haproxy
+# install certbot for https
+run touch /run/haproxy \
+  && echo "deb http://ftp.debian.org/debian jessie-backports main" | tee -a /etc/apt/sources.list.d/jessie-backports.list \
+  && apt-get update \
+  && apt-get install certbot -t jessie-backports -y \
+  && touch /total.pem
+
 COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
+COPY init.sh /
+CMD ["/bin/bash", "-c", "/init.sh"]
 expose 80 
 expose 443
-expose 1936
+expose 8888

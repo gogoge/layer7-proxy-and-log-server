@@ -1,7 +1,12 @@
 # layer7 proxy server with rsyslog server
 
+1. add domain and email to env variable
 
-1. modify the DOMAIN_NAME in `haproxy.cfg`
+```
+export DOMAIN1="xxx.xx.xxx.xxx"
+export EMAIL1="xxx@xxx.xxx"
+```
+
 2. build and run
 
 build & run rsyslog
